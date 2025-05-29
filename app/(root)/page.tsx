@@ -9,7 +9,6 @@ import { MotionDiv } from "@/components/animated/motion-div";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/atoms/Navbar";
 
-
 export default function Home() {
   const { fetchQuizzes, quizzes, selectedQuizz, hasCompleteAll, reset } =
     useQuestionStore();
@@ -21,17 +20,17 @@ export default function Home() {
   return (
     <MaxWidthWrapper  
       className={cn(
-        selectedQuizz && "xl:place-content-center",
-        "grid px-6 grid-cols-1 md:grid-cols-2 gap-10 xl:gap-20 lg:px-0 relative z-50 h-full"
+        selectedQuizz ? "w-full" : "grid px-6 grid-cols-1 md:grid-cols-2 gap-6 xl:gap-12 lg:px-0",
+        "relative z-50 py-4"
       )}
     >
       {!selectedQuizz && (
         <>
-        <Navbar></Navbar>
+          {/* <Navbar /> */}
           <MotionDiv
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="flex flex-col xs:gap-4 md:gap-10 lg:mt-28 xl:mt-0"
+            className="flex flex-col xs:gap-3 md:gap-6"
           >
             <h1 className="xs:text-4xl md:text-5xl font-normal text-dark-blue dark:text-white xl:text-6xl 2xl:text-6xl">
               Welcome to <span className="font-bold">Quizo!</span>
@@ -50,12 +49,12 @@ export default function Home() {
         </>
       )}
       {selectedQuizz && hasCompleteAll === false && <Game />}
-      {hasCompleteAll && (
+      {selectedQuizz && hasCompleteAll && (
         <>
           <MotionDiv
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="flex flex-col xs:gap-3 md:gap-6 h-full lg:mt-20"
+            className="flex flex-col xs:gap-3 md:gap-6"
           >
             <h1 className="xs:text-4xl md:text-5xl font-normal text-dark-blue dark:text-white xl:text-6xl">
               Quizz Completed!
