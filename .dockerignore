@@ -1,14 +1,40 @@
-.git
-.gitignore
-.next
+# Dependencies
 node_modules
 npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Next.js build output
+.next
+out
+
+# Testing
+coverage
+.nyc_output
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE and editor files
+.idea
+.vscode
+*.swp
+*.swo
+.DS_Store
+
+# Git
+.git
+.gitignore
+
+# Misc
 README.md
-.env*
+LICENSE
+*.log
+*.md
 .dockerignore
 Dockerfile
-docker-compose.yml
-coverage
-.vscode
-.idea
-*.log 
+docker-compose*.yml 
