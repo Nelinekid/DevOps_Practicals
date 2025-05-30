@@ -14,8 +14,11 @@ services:
       - /app/.next
     environment:
       - NODE_ENV=development
+      - NEXT_TELEMETRY_DISABLED=1
     env_file:
       - next.env
+    user: "node"
+    restart: unless-stopped
 
   web-prod:
     build:
@@ -25,6 +28,7 @@ services:
       - "3000:3000"
     environment:
       - NODE_ENV=production
+      - NEXT_TELEMETRY_DISABLED=1
     env_file:
       - next.env
     restart: always 
