@@ -28,13 +28,13 @@ jobs:
         context: .
         target: deps
         push: false
-        tags: your-dockerhub-username/quizo:dev
+        tags: drepart/quizo:dev
         cache-from: type=gha
         cache-to: type=gha,mode=max
     
     - name: Run tests
       run: |
-        docker run --rm your-dockerhub-username/quizo:dev npm test
+        docker run --rm drepart/quizo:dev npm test
     
     - name: Build and push production image
       if: github.ref == 'refs/heads/main'
@@ -44,8 +44,8 @@ jobs:
         target: runner
         push: true
         tags: |
-          your-dockerhub-username/quizo:latest
-          your-dockerhub-username/quizo:${{ github.sha }}
+          drepart/quizo:latest
+          drepart/quizo:${{ github.sha }}
         cache-from: type=gha
         cache-to: type=gha,mode=max
     
