@@ -26,14 +26,14 @@ jobs:
       uses: docker/build-push-action@v4
       with:
         context: .
-        target: deps
-        push: false
+        push: true
         tags: drepart/quizo:dev
         cache-from: type=gha
         cache-to: type=gha,mode=max
     
     - name: Run tests
       run: |
+        docker pull drepart/quizo:dev
         docker run --rm drepart/quizo:dev npm test
     
     - name: Build and push production image
