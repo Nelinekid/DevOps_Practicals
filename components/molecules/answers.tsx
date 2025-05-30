@@ -36,6 +36,7 @@ const Answers = ({
     setSelectedAns(answer);
   };
 
+  
   const handleSubmit = () => {
     if (submitted) {
       if (questions.every((q) => q.userSelectedAnswer != null)) {
