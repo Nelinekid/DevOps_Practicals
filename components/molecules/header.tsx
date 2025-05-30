@@ -14,11 +14,11 @@ const Header = () => {
     transition={{ delay: 0.5}}	
       className={cn(
         selectedQuizz ? "flex justify-between w-full items-center" : "",
-        "relative z-10"
+        "relative z-10 "
       )}
     >
       {selectedQuizz && (
-        <div className="flex gap-x-4 items-center sm:px-6 sm:py-4">
+        <div className="flex gap-x-4 items-center sm:px-6 sm:py-4 ">
           {" "}
           <div
             className="xs:p-1 p-2 rounded-lg"
