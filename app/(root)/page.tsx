@@ -75,6 +75,7 @@ export default function Home() {
             >
               Play Again
             </button>
+            
           </MotionDiv>
         </>
       )}
